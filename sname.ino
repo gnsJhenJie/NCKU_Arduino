@@ -14,8 +14,8 @@ const int voca = 13; //蜂鳴器
 int mo5v = 130, mo6v = 100;
 char K;
 float cm;
-SoftwareSerial BTSerial(0,1);
-char val;           
+SoftwareSerial BTSerial(0, 1);
+char val;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -32,22 +32,22 @@ void setup() {
   pinMode(echo, INPUT);
   digitalWrite(ledhead, HIGH);
   BTSerial.begin(9600);
-/*  tone(voca, 262, 500);
-  noTone(100);
-  tone(voca, 294, 500);
-  noTone(100);
-  tone(voca, 330, 500);
-  noTone(100);
-  tone(voca, 392, 500);
-  noTone(100);*/
+  /*  tone(voca, 262, 500);
+    noTone(100);
+    tone(voca, 294, 500);
+    noTone(100);
+    tone(voca, 330, 500);
+    noTone(100);
+    tone(voca, 392, 500);
+    noTone(100);*/
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if (BTSerial.available()) { 
+  if (BTSerial.available()) {
     K = BTSerial.read();
     Serial.print(K);
-  }                           
+  }
   digitalWrite(trig, LOW);
   delay(5);
   digitalWrite(trig, HIGH);
@@ -62,7 +62,7 @@ void loop() {
     digitalWrite(mo4, LOW);
     analogWrite(mo5, mo5v);
     analogWrite(mo6, mo6v);
-    
+
   }
 
   if (K == '2') {  //左轉
@@ -70,8 +70,8 @@ void loop() {
     digitalWrite(mo2, HIGH);
     digitalWrite(mo3, HIGH);
     digitalWrite(mo4, LOW);
-    analogWrite(mo5, 200);
-    analogWrite(mo6, 100);
+    analogWrite(mo5, 140);
+    analogWrite(mo6, 70);
 
   }
 
@@ -80,8 +80,8 @@ void loop() {
     digitalWrite(mo2, HIGH);
     digitalWrite(mo3, HIGH);
     digitalWrite(mo4, LOW);
-    analogWrite(mo5, 100);
-    analogWrite(mo6, 200);
+    analogWrite(mo5, 70);
+    analogWrite(mo6, 140);
 
   }
   if (K == '4') { //後退
@@ -111,6 +111,15 @@ void loop() {
     analogWrite(mo6, 255);
 
   }
+  if (K == '8') {  //加速前進
+    digitalWrite(mo1, LOW);
+    digitalWrite(mo2, HIGH);
+    digitalWrite(mo3, HIGH);
+    digitalWrite(mo4, LOW);
+    analogWrite(mo5, 255);
+    analogWrite(mo6, 255);
+
+  }
   if (K == '9') {
     tone(voca, 262, 500); //Do
     noTone(100);
@@ -120,11 +129,15 @@ void loop() {
     noTone(100);
     tone(voca, 392, 500); //Sol
     noTone(100);
-    
+
   }
-  if ((cm <= 20.0)&&(cm!=0.0)) {
-    tone(voca, 700,200);
+  if ((cm <= 20.0) && (cm != 0.0)) {
+    tone(voca, 700, 200);
     cm = 0.0;
   }
+  if ((cm <= 15.0) && (cm != 0.0)) {
+    tone(voca, 700, cm * 20);
+  }
+
 }
 
