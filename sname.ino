@@ -1,14 +1,14 @@
 #include <SoftwareSerial.h>
 //pin location
-int mo1 = 7;
-int mo2 = 2;
-int mo3 = 3;
-int mo4 = 4;
-int mo5 = 5; //pwm a
-int mo6 = 6; //pwm b
-int trig = 8;
-int echo = 9;
-int led = 12;
+const int mo1 = 7;
+const int mo2 = 2;
+const int mo3 = 3;
+const int mo4 = 4;
+const int mo5 = 5; //pwm a
+const int mo6 = 6; //pwm b
+const int trig = 8;
+const int echo = 9;
+const int led = 12;
 int ledhead = 14;
 const int voca = 13; //蜂鳴器
 int mo5v = 130, mo6v = 100;
@@ -16,6 +16,7 @@ char K;
 float cm;
 SoftwareSerial BTSerial(0, 1);
 char val;
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
