@@ -17,7 +17,7 @@ float cm;
 SoftwareSerial BTSerial(0, 1);
 char val;
 void setup() {
-  // put your setup code here, to run once:
+  // Initalize
   Serial.begin(9600);
   pinMode(mo1, OUTPUT);
   pinMode(mo2, OUTPUT);
@@ -43,7 +43,7 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  //This is a loop~
   if (BTSerial.available()) {
     K = BTSerial.read();
     Serial.print(K);
@@ -140,4 +140,3 @@ void loop() {
   }
 
 }
-
