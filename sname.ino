@@ -1,4 +1,5 @@
 #include <SoftwareSerial.h>
+
 //pin location
 int mo1 = 7;
 int mo2 = 2;
@@ -16,6 +17,7 @@ char K;
 float cm;
 SoftwareSerial BTSerial(0, 1);
 char val;
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
@@ -55,7 +57,7 @@ void loop() {
   cm = pulseIn(echo, HIGH) / 58.0;
   delay(5);
   Serial.println(cm);
-  if (K == '1') {  //前進
+  if (K == '1') {  //前進 go straight
     digitalWrite(mo1, LOW);
     digitalWrite(mo2, HIGH);
     digitalWrite(mo3, HIGH);
@@ -65,7 +67,7 @@ void loop() {
 
   }
 
-  if (K == '2') {  //左轉
+  if (K == '2') {  //左轉 turn left
     digitalWrite(mo1, LOW);
     digitalWrite(mo2, HIGH);
     digitalWrite(mo3, HIGH);
@@ -75,7 +77,7 @@ void loop() {
 
   }
 
-  if (K == '3') { //右轉
+  if (K == '3') { //右轉 turn right
     digitalWrite(mo1, LOW);
     digitalWrite(mo2, HIGH);
     digitalWrite(mo3, HIGH);
@@ -84,7 +86,7 @@ void loop() {
     analogWrite(mo6, 140);
 
   }
-  if (K == '4') { //後退
+  if (K == '4') { //後退 turn back
     digitalWrite(mo1, HIGH);
     digitalWrite(mo2, LOW);
     digitalWrite(mo3, LOW);
@@ -93,7 +95,7 @@ void loop() {
     analogWrite(mo6, mo6v);
 
   }
-  if (K == '5') { //空檔
+  if (K == '5') { //空檔 stall
     digitalWrite(mo1, HIGH);
     digitalWrite(mo2, LOW);
     digitalWrite(mo3, HIGH);
@@ -102,7 +104,7 @@ void loop() {
     analogWrite(mo6, 0);
 
   }
-  if (K == '6') { //煞車
+  if (K == '6') { //煞車 break
     digitalWrite(mo1, HIGH);
     digitalWrite(mo2, HIGH);
     digitalWrite(mo3, HIGH);
@@ -111,7 +113,7 @@ void loop() {
     analogWrite(mo6, 255);
 
   }
-  if (K == '8') {  //加速前進
+  if (K == '8') {  //加速前進 high straight
     digitalWrite(mo1, LOW);
     digitalWrite(mo2, HIGH);
     digitalWrite(mo3, HIGH);
