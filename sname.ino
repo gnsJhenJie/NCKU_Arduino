@@ -1,9 +1,6 @@
 #include <SoftwareSerial.h>
 //pin location
-int mo1 = 7;
-int mo2 = 2;
-int mo3 = 3;
-int mo4 = 4;
+int mo1 = 7, mo2 = 2, mo3 = 3, mo4 = 4;
 int mo5 = 5; //pwm a
 int mo6 = 6; //pwm b
 int trig = 8;
@@ -62,9 +59,7 @@ void loop() {
     digitalWrite(mo4, LOW);
     analogWrite(mo5, mo5v);
     analogWrite(mo6, mo6v);
-
   }
-
   if (K == '2') {  //左轉
     digitalWrite(mo1, LOW);
     digitalWrite(mo2, HIGH);
@@ -72,9 +67,7 @@ void loop() {
     digitalWrite(mo4, LOW);
     analogWrite(mo5, 140);
     analogWrite(mo6, 70);
-
   }
-
   if (K == '3') { //右轉
     digitalWrite(mo1, LOW);
     digitalWrite(mo2, HIGH);
@@ -82,7 +75,6 @@ void loop() {
     digitalWrite(mo4, LOW);
     analogWrite(mo5, 70);
     analogWrite(mo6, 140);
-
   }
   if (K == '4') { //後退
     digitalWrite(mo1, HIGH);
@@ -91,7 +83,6 @@ void loop() {
     digitalWrite(mo4, HIGH);
     analogWrite(mo5, mo5v);
     analogWrite(mo6, mo6v);
-
   }
   if (K == '5') { //空檔
     digitalWrite(mo1, HIGH);
@@ -100,7 +91,6 @@ void loop() {
     digitalWrite(mo4, LOW);
     analogWrite(mo5, 0);
     analogWrite(mo6, 0);
-
   }
   if (K == '6') { //煞車
     digitalWrite(mo1, HIGH);
@@ -109,7 +99,6 @@ void loop() {
     digitalWrite(mo4, HIGH);
     analogWrite(mo5, 255);
     analogWrite(mo6, 255);
-
   }
   if (K == '8') {  //加速前進
     digitalWrite(mo1, LOW);
@@ -118,7 +107,6 @@ void loop() {
     digitalWrite(mo4, LOW);
     analogWrite(mo5, 255);
     analogWrite(mo6, 255);
-
   }
   if (K == '9') {
     tone(voca, 262, 500); //Do
@@ -129,7 +117,6 @@ void loop() {
     noTone(100);
     tone(voca, 392, 500); //Sol
     noTone(100);
-
   }
   if ((cm <= 20.0) && (cm != 0.0)) {
     tone(voca, 700, 200);
@@ -138,6 +125,4 @@ void loop() {
   if ((cm <= 15.0) && (cm != 0.0)) {
     tone(voca, 700, cm * 20);
   }
-
 }
-
