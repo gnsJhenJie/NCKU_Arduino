@@ -1,2 +1,2 @@
-2018 SNAME CAMP @[NCKU](https://www.ncku.edu.tw/) !!!  
+2018 SNAME CAMP @[NCKU SNAME](https://www.ncku.edu.tw/) !!!  
 Arduino remote car & remote APP !!!
